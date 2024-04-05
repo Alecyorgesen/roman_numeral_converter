@@ -121,3 +121,5 @@ def roman_numeral_to_decimal(roman_numeral: str):
     return number
 
 # def check_if_roman_numeral_is_valid(roman_numeral: str):
+#     acceptable_letters = set('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
+#     while len(roman_numeral) > 0:
