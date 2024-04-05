@@ -1,6 +1,9 @@
 # This function works by attempting to subract by the respective amount of
 # each roman numeral to the input number.
-def decimal_to_roman_numeral(number):
+
+def decimal_to_roman_numeral(number: int):
+    if number == 0:
+        return ""
     roman_numeral = ""
     # This checks if the roman numeral should have an M
     while number - 1000 >= 0:
@@ -57,4 +60,64 @@ def decimal_to_roman_numeral(number):
     
     return roman_numeral
 
+def roman_numeral_to_decimal(roman_numeral: str):
+    number = 0
+    while len(roman_numeral) > 0:
+        if roman_numeral[:2] == "CM":
+            number += 900
+            roman_numeral = roman_numeral[2:]
 
+        elif roman_numeral[:2] == "CD":
+            number += 400
+            roman_numeral = roman_numeral[2:]
+
+        elif roman_numeral[:2] == "XC":
+            number += 90
+            roman_numeral = roman_numeral[2:]
+
+        elif roman_numeral[:2] == "XL":
+            number += 40
+            roman_numeral = roman_numeral[2:]
+
+        elif roman_numeral[:2] == "IX":
+            number += 9
+            roman_numeral = roman_numeral[2:]
+
+        elif roman_numeral[:2] == "IV":
+            number += 4
+            roman_numeral = roman_numeral[2:]
+
+        elif roman_numeral[0] == "M":
+            number += 1000
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "D":
+            number += 500
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "C":
+            number += 100
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "L":
+            number += 50
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "X":
+            number += 10
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "V":
+            number += 5
+            roman_numeral = roman_numeral[1:]
+
+        elif roman_numeral[0] == "I":
+            number += 1
+            roman_numeral = roman_numeral[1:]
+
+        else:
+            raise RuntimeError("Invalid input")
+        
+    return number
+
+# def check_if_roman_numeral_is_valid(roman_numeral: str):
