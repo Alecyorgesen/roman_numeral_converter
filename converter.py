@@ -1,6 +1,7 @@
-# This function works by attempting to subract by the respective amount of
-# each roman numeral to the input number.
-
+"""
+This function works by attempting to subract by the respective amount of
+each roman numeral to the input number.
+"""
 def decimal_to_roman_numeral(number: int):
     if number == 0:
         return ""
@@ -60,6 +61,12 @@ def decimal_to_roman_numeral(number: int):
     
     return roman_numeral
 
+"""
+This function works by checking the roman numeral input string from left to right
+adding up the values of each of the characters as it goes.
+Because of the nature of letters that can subtract others,
+it checks pairs of letters first, and then moves on to single characters.
+"""
 def roman_numeral_to_decimal(roman_numeral: str):
     number = 0
     while len(roman_numeral) > 0:
@@ -119,7 +126,3 @@ def roman_numeral_to_decimal(roman_numeral: str):
             raise RuntimeError("Invalid input")
         
     return number
-
-# def check_if_roman_numeral_is_valid(roman_numeral: str):
-#     acceptable_letters = set('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
-#     while len(roman_numeral) > 0:
